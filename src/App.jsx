@@ -103,23 +103,64 @@ function App() {
       return;
     }
 
-    // Create a hidden iframe to attempt opening the app
-    const timeout = setTimeout(() => {
-      // If app did NOT open, fallback to web URL
-      window.location.href = webUrl;
-    }, 1500); // 1.5s is usually enough
+    let timeoutId = null;
+    let iframe = null;
+    let handled = false;
 
-    // Try to open the app
-    const iframe = document.createElement("iframe");
+    const cleanup = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+      }
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      window.removeEventListener("pagehide", onPageHide);
+      window.removeEventListener("blur", onBlur);
+      try {
+        if (iframe && iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      } catch (e) {}
+      iframe = null;
+    };
+
+    const fallbackToWeb = () => {
+      if (handled) return;
+      handled = true;
+      cleanup();
+      window.location.href = webUrl;
+    };
+
+    const onVisibilityChange = () => {
+      // If page becomes hidden, assume OS switched to the native app — cancel fallback
+      if (document.visibilityState === "hidden") {
+        handled = true;
+        cleanup();
+      }
+    };
+
+    const onPageHide = () => {
+      handled = true;
+      cleanup();
+    };
+
+    const onBlur = () => {
+      // some browsers trigger blur when switching to app
+      handled = true;
+      cleanup();
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    window.addEventListener("pagehide", onPageHide);
+    window.addEventListener("blur", onBlur);
+
+    // Try to open the native app via iframe
+    iframe = document.createElement("iframe");
     iframe.style.display = "none";
     iframe.src = appUrl;
     document.body.appendChild(iframe);
 
-    // Clean up iframe after timeout
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-      clearTimeout(timeout);
-    }, 2000);
+    // Fallback to web if nothing happened within timeout
+    timeoutId = setTimeout(() => {
+      fallbackToWeb();
+    }, 1500);
   };
 
 
