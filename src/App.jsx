@@ -50,8 +50,8 @@ function App() {
       id: 5,
       name: "WhatsApp",
       icon: <FaWhatsapp />,
-      appUrl: "whatsapp://send?phone=919999999999&text=Hello%20Bunty!",
-      webUrl: "https://wa.me/919999999999",
+      appUrl: "whatsapp://send?phone=919996319072&text=Hello%20Bunty!",
+      webUrl: "https://wa.me/919996319072?text=Hello%20Bunty!",
       color: "from-green-500 to-emerald-600",
       style: { background: "linear-gradient(to right, #22c55e, #059669)" }
     },
@@ -59,8 +59,8 @@ function App() {
       id: 6,
       name: "GitHub",
       icon: <FaGithub />,
-      appUrl: "https://github.com/buntynamberdar",
-      webUrl: "https://github.com/buntynamberdar",
+      appUrl: "https://github.com/sushilnamberdar",
+      webUrl: "https://github.com/sushilnamberdar",
       color: "from-gray-700 to-gray-900",
       style: { background: "linear-gradient(to right, #374151, #111827)" }
     },
@@ -68,8 +68,8 @@ function App() {
       id: 7,
       name: "Portfolio",
       icon: <FaGlobe />,
-      appUrl: "https://buntynamberdar.me",
-      webUrl: "https://buntynamberdar.me",
+      appUrl: "https://buntynamberdar.vercel.app/",
+      webUrl: "https://buntynamberdar.vercel.app/",
       color: "from-indigo-500 to-purple-600",
       style: { background: "linear-gradient(to right, #6366f1, #9333ea)" }
     }
