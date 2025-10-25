@@ -4,6 +4,7 @@ import { loadSlim } from '@tsparticles/slim'
 import { initParticlesEngine } from '@tsparticles/react'
 
 import bgimg from './assets/4002676.jpg'
+import dp from './assets/dp.jpg'
 import { FaInstagram, FaYoutube, FaTwitter, FaTelegram, FaWhatsapp, FaGithub, FaGlobe } from 'react-icons/fa'
 
 function App() {
@@ -217,7 +218,7 @@ function App() {
 
       <div className="relative z-20 flex flex-col items-center p-6">
         <div className="text-center  mb-8">
-          <img src="https://avatars.githubusercontent.com/u/000000?v=4" alt="Bunty Namberdar" className="w-14 h-14 userimg rounded-full border-4 border-white shadow-xl mx-auto" />
+          <img src={dp} alt="Bunty Namberdar" className="w-14 h-14 userimg rounded-full border-4 border-white shadow-xl mx-auto" />
           <h1 className="text-3xl font-bold mt-4 text-white">Bunty Namberdar</h1>
           <p className="text-white mt-2">@buntynamberdar</p>
           <p className="mt-2 text-sm text-white">Digital Creator | Tech Enthusiast | Dream Builder 🚀</p>

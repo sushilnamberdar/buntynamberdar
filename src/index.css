@@ -22,6 +22,8 @@ body {
   gap:10px;
   font-size: large;
   margin-bottom: 10px;
-  display: flex;
   flex-wrap: wrap;
+}
+.text-white{
+  color: white;
 }
