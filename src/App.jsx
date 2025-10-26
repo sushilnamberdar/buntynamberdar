@@ -50,8 +50,8 @@ function App() {
       id: 5,
       name: "WhatsApp",
       icon: <FaWhatsapp />,
-      appUrl: "whatsapp://send?phone=919996319072&text=Hello%20Bunty!",
-      webUrl: "https://wa.me/919996319072?text=Hello%20Bunty!",
+      appUrl: "whatsapp://send?phone=91&text=Hello%20Bunty!",
+      webUrl: "https://wa.me/91?text=Hello%20Bunty!",
       color: "from-green-500 to-emerald-600",
       style: { background: "linear-gradient(to right, #22c55e, #059669)" }
     },
